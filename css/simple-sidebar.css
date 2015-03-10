@@ -21,6 +21,13 @@ html, body {
 
 #page-content-wrapper {
   width: 100%;
+
+}
+
+#page-content-wrapper img {
+  width: 100%;
+  max-width: 700px;
+  border: 1px solid lightgray;
 }
 
 .sidebar-nav {
