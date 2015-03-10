@@ -11,7 +11,7 @@ html, body {
   margin-left: -300px;
   left: 300px;
   width: 300px;
-  background: rgb(238, 238, 238);
+  background: #524545;
   position: fixed;
   height: 100%;
   overflow-y: auto;
@@ -35,12 +35,16 @@ html, body {
 .sidebar-nav li {
   /*line-height: 30px;*/
   text-indent: 20px;
+
 }
 
+/*sidebar items*/
 .sidebar-nav li a {
-  color: rgba(0,0,0,0.8);
+  color: white;
   display: block;
   text-decoration: none;
+  letter-spacing: 2px;
+
 }
 
 .sidebar-nav li a:hover {
@@ -78,6 +82,7 @@ html, body {
   margin: 0;
   margin-left: 20px;
   padding-top: 20px;
+  font-size: 35px;
   /*line-height: 65px;*/
   display: inline-block;
 }
@@ -88,6 +93,13 @@ html, body {
 
 .inset {
   padding: 20px;
+}
+
+/*page P*/
+.inset p {
+  font-size: 18px;
+  font-family: Corbel, Verdana, "Bitstream Vera Sans", sans-serif;
+
 }
 
 
@@ -101,13 +113,14 @@ html, body {
   border-top:none
 }
 
-#index > h4 {
+#index > p {
   font-size: 22px;
+  font-family: Corbel, Verdana, "Bitstream Vera Sans", sans-serif;
   color: #561420;
   font-weight: normal;
   letter-spacing: 1px;
   line-height: 125%;
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 
 
@@ -142,9 +155,6 @@ html, body {
 }
 
 h1,h2,h3 {
-  font-size: 22px
+  font-size: 28px
 }
-h4, #index > h4 {
-  font-size: 16px;
-}
-}
+
