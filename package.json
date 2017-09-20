@@ -1,0 +1,24 @@
+{
+  "name": "scottpham.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run serve",
+    "serve": "live-server index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scottpham/scottpham.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scottpham/scottpham.github.io/issues"
+  },
+  "homepage": "https://github.com/scottpham/scottpham.github.io#readme",
+  "devDependencies": {
+    "live-server": "^1.2.0"
+  }
+}
