@@ -1,0 +1,15 @@
+body {
+  margin: 40px auto;
+  max-width: 700px;
+  line-height: 1.4em;
+  font-size: 18px;
+  color: #222222;
+  padding: 0 10px;
+  font-family: 'Roboto', sans-serif;
+  background-color: GhostWhite; }
+
+h1, h2, h3, h4 {
+  font-family: 'Verdana', sans-serif;
+  color: #666666; }
+
+/*# sourceMappingURL=main.css.map */

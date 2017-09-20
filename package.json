@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run serve",
-    "serve": "live-server index.html",
+    "start": "run-p style:watch html:watch serve",
+    "serve": "browser-sync start --server --serveStatic 'build/' --files 'build/' ",
+    "html": "cp index.html build/",
+    "html:watch": "chokidar 'index.html' --initial=true -c 'npm run html'",
+    "style": "node-sass --source-map true styles/main.scss build/main.css",
+    "style:watch": "npm run style && node-sass -w --source-map true styles/main.scss build/main.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +23,11 @@
   },
   "homepage": "https://github.com/scottpham/scottpham.github.io#readme",
   "devDependencies": {
-    "live-server": "^1.2.0"
-  }
+    "browser-sync": "^2.18.13",
+    "chokidar-cli": "^1.2.0",
+    "live-server": "^1.2.0",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.1.1"
+  },
+  "dependencies": {}
 }
