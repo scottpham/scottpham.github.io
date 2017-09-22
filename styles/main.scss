@@ -1,10 +1,11 @@
 // yassss http://bettermotherfuckingwebsite.com/
-
 @import 'palette';
 $black: #222222;
 $background: GhostWhite;
-$body-font: 'Roboto', sans-serif;
-$header-font: 'Verdana', sans-serif; 
+$body-font: 'Roboto',
+sans-serif;
+$header-font: 'Verdana',
+sans-serif;
 
 body {
   margin: 40px auto;
@@ -13,14 +14,21 @@ body {
   font-size: 18px;
   color: $black;
   padding: 0 10px;
-  font-family: $body-font; 
+  font-family: $body-font;
   background-color: $background;
 }
 
-h1,h2,h3,h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: $header-font;
   color: $color1;
   text-align: center;
+}
+
+h1 {
+  font-size: 3em;
 }
 
 #headshot {
@@ -30,9 +38,38 @@ h1,h2,h3,h4 {
 }
 
 #nav {
-  display: flex;
+  display: flex; //justify-content: center;
+  justify-content: space-around;
+
+  span>a {
+    font-size: 1.3em;
+    color: $color4;
+  }
 }
 
+#portfolio {
+
+  border-top: 1px solid $color1;
+  margin: 30px 0;
+}
+
+.clip {
+  width: 50%;
+  padding: 20px 10px 0px 10px; 
+  span {
+    font-size: 1.2em;
+    a {
+      color: $color2;
+    }
+  }
 
 
+  p {
+    color: #444444;
+    text-align: justify;
+    margin: 10px 0px;
+  }
 
+  img {
+  }
+}
