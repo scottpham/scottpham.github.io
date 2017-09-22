@@ -1,16 +1,34 @@
 // yassss http://bettermotherfuckingwebsite.com/
+
+@import 'palette';
+$black: #222222;
+$background: GhostWhite;
+$body-font: 'Roboto', sans-serif;
+$header-font: 'Verdana', sans-serif; 
+
 body {
   margin: 40px auto;
   max-width: 700px;
-  line-height: 1.4em;
+  line-height: 1.5em;
   font-size: 18px;
-  color: #222222;
+  color: $black;
   padding: 0 10px;
-  font-family: 'Roboto', sans-serif;
-  background-color: GhostWhite;
+  font-family: $body-font; 
+  background-color: $background;
 }
 
 h1,h2,h3,h4 {
-  font-family: 'Verdana', sans-serif;
-  color: #666666;
+  font-family: $header-font;
+  color: $color1;
+  text-align: center;
 }
+
+#headshot {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+
+
+
