@@ -9,7 +9,7 @@
     "html": "mustache data/portfolio.json index.html > build/index.html",
     "html:watch": "chokidar 'index.html' --initial=true -c 'npm run html'",
     "data": "node data/convert.js",
-    "data:watch": "chokidar 'data/portfolio*' --initial=true -c 'npm run data'",
+    "data:watch": "chokidar 'data/portfolio.csv' --initial=true -c 'npm run data'",
     "style": "node-sass --source-map true styles/main.scss build/main.css",
     "style:watch": "npm run style && node-sass -w --source-map true styles/main.scss build/main.css",
     "test": "echo \"Error: no test specified\" && exit 1"
