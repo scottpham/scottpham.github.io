@@ -3,7 +3,8 @@ const path = require("path");
 const io = require("indian-ocean");
 
 // get abs path
-const portfolio = path.resolve('portfolio.csv');
+const portfolio = path.join(__dirname, 'portfolio.csv');
+
 //read the csv as json 
 const port_data = io.readDataSync(portfolio);
 
@@ -12,6 +13,6 @@ const result = {
   clips: port_data
 }
 
-const destination = path.resolve("portfolio.json");
+const destination = path.join(__dirname, "portfolio.json");
 // write out (dest, data)
 io.writeDataSync(destination, result);
