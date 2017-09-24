@@ -16,28 +16,36 @@
   <h1>Scott Pham</h2>
     <img id="headshot" src="http://www.fillmurray.com/200/200" />
 
-    <p>Hullo, I'm Scott Pham, a data journalist at the Center for Investigative Reporting. I report on data-centric stories and create interactive visualizations like maps, charts and other digital stuff.</p>
 
     <section id="nav">
 
-      <span><a href="#">About</a></span>
-      <span><a href="#">Portfolio</a></span>
-      <span><a href="#">Contact</a></span>
+      <span><a href="#about">About</a></span>
+      <span><a href="#portfolio">Portfolio</a></span>
+      <span><a href="#contact">Contact</a></span>
 
     </section>
+
+
+    <p id="about">Hullo, I'm Scott Pham, a data journalist at the Center for Investigative Reporting. I report on data-centric stories and create interactive visualizations like maps, charts and other digital stuff.</p>
 
     <section id="portfolio">
        {{#clips}}
  
       <div class="clip">
-       <span><a href="#">{{name}}</a></span>
+       <span class="slug"><a href="#">{{name}}</a></span>
        <img src="http://www.fillmurray.com/350/150" />
+       <span class="tag">{{newsroom}}</span>
        <p>Description of the clip. Description of the clip. Description of the clip. Description of the clip. Description of the clip. Description of the clip.  </p>
       </div>
     {{/clips}}
     </section>
+    <section id="contact">
 
+
+
+     </section>
 
 </body>
 
+<p>Email me at <a href="mailto:scottgpham@gmail.com">scottgpham[at]gmail.com</a><p>
 </html>

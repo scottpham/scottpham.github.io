@@ -18,6 +18,14 @@ body {
   background-color: $background;
 }
 
+p {
+color: #444444;
+}
+
+a {
+ color: $color4;
+}
+
 h1,
 h2,
 h3,
@@ -28,8 +36,17 @@ h4 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 4em;
+  line-height: 1em;
+  
+  @media screen and (max-width: 600px){
+    font-size: 3em;
+  }
+
 }
+
+
+
 
 #headshot {
   display: block;
@@ -38,17 +55,18 @@ h1 {
 }
 
 #nav {
+  margin: 1.5em 0;
   display: flex; //justify-content: center;
   justify-content: space-around;
 
   span>a {
     font-size: 1.3em;
-    color: $color4;
   }
 }
 
 #portfolio {
   border-top: 1px solid $color1;
+  border-bottom: 1px solid $color1;
   margin: 30px 0;
   display: flex;
   flex-wrap: wrap;
@@ -59,32 +77,40 @@ h1 {
 .clip {
   flex-grow: 1;
   flex-shrink: 1;
-  flex-basis: 310px;
+  flex-basis: 300px;
   //width: 310px;
   padding: 20px 10px 0px 10px; 
-  margin: 0px 10px;
+  margin: 0px 10px 20px 10px;
 
-  span {
+  span.slug {
     display: block;
     font-size: 1.2em;
     margin: 5px 0px 15px 0px;
 
     a {
       color: $color2;
-      
     }
-    
+  }
+
+  span.tag {
+    font-size: 0.8em; 
+    color: #888888;
   }
 
 
   p {
     color: #444444;
     text-align: justify;
-    margin: 10px 0px;
+    margin: 5px 0px;
     width: 100%;
   }
 
   img {
     width: 100%;
   }
+}
+
+section#contact {
+
+  
 }
