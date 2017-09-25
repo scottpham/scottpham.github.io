@@ -5,16 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "run-p style:watch data:watch html:watch assets:watch serve",
-    "serve": "browser-sync start --server --serveStatic 'build/' --files 'build/' ",
+    "serve": "browser-sync start --server --serveStatic 'docs/' --files 'docs/' ",
     "deploy": "run-s data html assets style",
-    "html": "mustache data/portfolio.json index.html > build/index.html",
+    "html": "mustache data/portfolio.json index.html > docs/index.html",
     "html:watch": "chokidar 'index.html' --initial=true -c 'npm run html'",
     "data": "node data/convert.js",
     "data:watch": "chokidar 'data/portfolio.csv' --initial=true -c 'run-s data html'",
-    "style": "node-sass --source-map true styles/main.scss build/main.css",
-    "style:watch": "npm run style && node-sass -w --source-map true styles/main.scss build/main.css",
-    "assets": "rsync -a assets build/",
-    "assets:watch": "chokidar 'assetes/**' -c 'npm run assets'",
+    "style": "node-sass --source-map true styles/main.scss docs/main.css",
+    "style:watch": "npm run style && node-sass -w --source-map true styles/main.scss docs/main.css",
+    "assets": "rsync -a assets docs/",
+    "assets:watch": "chokidar 'assets/**' -c 'npm run assets'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
