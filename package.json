@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "run-p style:watch data:watch html:watch serve",
+    "start": "run-p style:watch data:watch html:watch assets:watch serve",
     "serve": "browser-sync start --server --serveStatic 'build/' --files 'build/' ",
     "html": "mustache data/portfolio.json index.html > build/index.html",
     "html:watch": "chokidar 'index.html' --initial=true -c 'npm run html'",

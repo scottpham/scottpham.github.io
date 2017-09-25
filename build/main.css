@@ -32,7 +32,8 @@ h1 {
 #headshot {
   display: block;
   margin: 0 auto;
-  border-radius: 50%; }
+  border-radius: 50%;
+  max-width: 250px; }
 
 #nav {
   margin: 1.5em 0;
@@ -66,6 +67,8 @@ h1 {
     color: #888888; }
   .clip p {
     color: #444444;
+    font-size: 16px;
+    line-height: 1.2em;
     text-align: justify;
     margin: 5px 0px;
     width: 100%; }

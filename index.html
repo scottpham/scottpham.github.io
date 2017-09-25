@@ -14,7 +14,7 @@
 
 <body>
   <h1>Scott Pham</h2>
-    <img id="headshot" src="http://www.fillmurray.com/200/200" />
+    <img id="headshot" src="assets/images/street.png" />
 
 
     <section id="nav">
@@ -31,9 +31,12 @@
     <section id="portfolio">
        {{#clips}}
  
-      <div class="clip">
-       <span class="slug"><a href="#">{{name}}</a></span>
-       <img src="http://www.fillmurray.com/350/150" />
+       <div class="clip" id="{{slug}}">
+        <span class="slug"><a href="{{ link }}" target="_blank">{{name}}</a></span>
+        {{#image}}
+        <a href="{{ link }}" target="_blank"><img src="assets/images/{{image}}" /></a>
+       {{/image}}
+      
        <span class="tag">{{newsroom}}</span>
        <p>{{ copy }}</p>
       </div>
