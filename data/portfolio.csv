@@ -1,7 +1,7 @@
-slug,name,newsroom,image,copy
-clip1,Name of clip1,CIR,,
-clip2,Name of clip 2,CIR,,
-clip3,Name of clip 3,CIR,,
-clip4,Name of clip 4,NBC,,
-clip5,Name of clip 5,NBC,,
-clip6,Name of clip 6,NBC,,
+slug,name,link,newsroom,image,copy
+clip1,How Fire Feeds,http://fire.revealnews.org/,CIR,,An interactive narrative that shows how three massive forest fires spiraled out of control. This story won a Philip Meyer Award in 2016 for data journalism.
+clip2,The Promised Land,http://apps.revealnews.org/transmountain,CIR,,"I designed, laid out, and programmed this unique story format for a narrative about a controversial Canadian oil pipeline. Scroll-based events triggered animations on a custom map, orienting the user as he reads through the piece. "
+clip3,Homegrown Terror,http://apps.revealnews.org/transmountainhomegrown-terror,CIR/The Investigative Fund,,I helped to build and analyze a unique database of domestic terror incidents. I built an interactive application to view and map these incidents.
+clip4,How Militarized Are California Police?,,NBC,,
+clip5,Bay Area Quake Map,,NBC,,
+clip6,The Leakiest Cities in the Bay,,NBC,,
