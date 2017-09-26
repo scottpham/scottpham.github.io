@@ -108,9 +108,15 @@ h1 {
     width: 100%;
   }
 
+  img.gray {
+    filter: grayscale(80%);
+    -webkit-filter: grayscale(80%);
+  }
+
   img {
     width: 100%;
   }
+
 }
 
 section#contact {
