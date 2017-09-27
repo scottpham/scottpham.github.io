@@ -13,7 +13,7 @@ p {
   color: #444444; }
 
 a {
-  color: #4E0500; }
+  color: #9B1A11; }
 
 h1,
 h2,
@@ -62,7 +62,11 @@ h1 {
     font-size: 1.2em;
     margin: 5px 0px 15px 0px; }
     .clip span.slug a {
-      color: #4E0500; }
+      color: #9B1A11;
+      transition: color 1s; }
+  .clip span.slug.highlight a {
+    color: #119B4A;
+    transition: color 1s; }
   .clip span.tag {
     font-size: 0.8em;
     color: #888888; }

@@ -6,13 +6,14 @@ body {
   color: #222222;
   padding: 0 10px;
   font-family: "Roboto", sans-serif;
-  background-color: GhostWhite; }
+  background-color: GhostWhite;
+  padding-bottom: 300px; }
 
 p {
   color: #444444; }
 
 a {
-  color: #4E0500; }
+  color: #9B1A11; }
 
 h1,
 h2,
@@ -61,7 +62,7 @@ h1 {
     font-size: 1.2em;
     margin: 5px 0px 15px 0px; }
     .clip span.slug a {
-      color: #4E0500; }
+      color: #9B1A11; }
   .clip span.tag {
     font-size: 0.8em;
     color: #888888; }
@@ -74,8 +75,10 @@ h1 {
     width: 100%; }
   .clip img.gray {
     filter: grayscale(80%);
-    -webkit-filter: grayscale(80%); }
+    -webkit-filter: grayscale(80%);
+    transition: filter 1s; }
   .clip img {
-    width: 100%; }
+    width: 100%;
+    transition: filter 1s; }
 
 /*# sourceMappingURL=main.css.map */

@@ -20,67 +20,70 @@
 
     <section id="nav">
 
-      <span><a href="#about">About</a></span>
       <span><a href="#portfolio">Portfolio</a></span>
       <span><a href="#contact">Contact</a></span>
+      <span><a href="assets/scottpham_resume_clips.pdf" download>Resume</a></span>
 
     </section>
 
 
     <p id="about">Hello, I'm Scott Pham, an investigative data journalist at the <a href="https://www.revealnews.org/author/scottpham" target="_blank">Center for Investigative Reporting</a>. I obtain and analyze data to build and support investigations on topics like domestic terrorism and police militarization. I also build interactive news applications and data visualizations.</p>
 
+    <section id="portfolio">
+      {{#clips}}
+
+      <div class="clip" id="{{slug}}">
+        <span class="slug"><a href="{{ link }}" target="_blank">{{name}}</a></span>
+
+        <a href="{{ link }}" target="_blank"><img class="gray" src="assets/images/{{image}}" /></a>
+
+        <span class="tag">{{newsroom}}</span>
+        <p>{{ copy }}</p>
+
+      </div>
+      {{/clips}}
+    </section>
 
 
 
 
-        <section id="portfolio">
-          {{#clips}}
+    <section id="contact">
 
-          <div class="clip" id="{{slug}}">
-              <span class="slug"><a href="{{ link }}" target="_blank">{{name}}</a></span>
-              
-              <a href="{{ link }}" target="_blank"><img class="gray" src="assets/images/{{image}}" /></a>
-
-              <span class="tag">{{newsroom}}</span>
-              <p>{{ copy }}</p>
-
-            </div>
-            {{/clips}}
-        </section>
+      <p>Email me at <a href="mailto:scottgpham@gmail.com">scottgpham[at]gmail.com</a>
+      </p>
 
 
-
-
-        <section id="contact">
-
-          <p>Email me at <a href="mailto:scottgpham@gmail.com">scottgpham[at]gmail.com</a>
-            </p>
-
-
-        </section>
+    </section>
 
 
 </body>
 
 
 <script type="text/javascript">
+  var imgs = document.querySelectorAll("#portfolio img");
 
-var imgs = document.querySelectorAll("#portfolio img");
+  function color(event) {
+    this.classList.remove("gray");
+    var $parent = this.parentNode.parentNode;
+    // get parent
+    var $clip = this.closest(".clip");
+    // get the link
+    var $slug = $clip.querySelector(".slug");
 
-function color(event){
-  this.classList.remove("gray");
-}
+    $slug.classList.add("highlight");
+  }
 
-function gray(event){
-  this.classList.add("gray");
-}
+    function gray(event) {
+      this.classList.add("gray");
+      var $slug = this.parentNode.parentNode.closest(".clip").querySelector(".slug");
 
-Array.from(imgs).forEach( function(each){
-  each.addEventListener('mouseover', color);
-  each.addEventListener('mouseout', gray);
-});
+      $slug.classList.remove("highlight");
+    }
 
-
+    Array.from(imgs).forEach(function(each) {
+      each.addEventListener('mouseover', color);
+      each.addEventListener('mouseout', gray);
+    });
 </script>
 
 </html>

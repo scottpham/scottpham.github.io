@@ -24,7 +24,7 @@ p {
 }
 
 a {
- color: $color4;
+ color: $color5;
 }
 
 h1,
@@ -90,10 +90,18 @@ h1 {
     margin: 5px 0px 15px 0px;
 
     a {
-      color: $color4;
+      color: $color5;
+      transition: color 1s;
     }
   }
 
+  //controled by js
+  span.slug.highlight {
+    a {
+      color: $color1;
+      transition: color 1s;
+    }
+  }
   span.tag {
     font-size: 0.8em; 
     color: #888888;

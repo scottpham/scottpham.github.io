@@ -13,8 +13,8 @@
     "data:watch": "chokidar 'src/data/portfolio.csv' --initial=true -c 'run-s data html'",
     "style": "node-sass --source-map true src/styles/main.scss src/docs/main.css",
     "style:watch": "npm run style && node-sass -w --source-map true src/styles/main.scss main.css",
-    "assets": "rsync -a src/assets assets/",
-    "assets:watch": "chokidar 'src/assets/**' -c 'npm run assets'"
+    "assets": "rsync -a src/assets/ assets/",
+    "assets:watch": "chokidar 'src/assets/**' --initial=true -c 'npm run assets'"
   },
   "repository": {
     "type": "git",
