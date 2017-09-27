@@ -16,6 +16,7 @@ body {
   padding: 0 10px;
   font-family: $body-font;
   background-color: $background;
+  padding-bottom: 300px;
 }
 
 p {
@@ -111,10 +112,12 @@ h1 {
   img.gray {
     filter: grayscale(80%);
     -webkit-filter: grayscale(80%);
+    transition: filter 1s;
   }
 
   img {
     width: 100%;
+    transition: filter 1s;
   }
 
 }

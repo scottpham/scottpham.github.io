@@ -6,7 +6,8 @@ body {
   color: #222222;
   padding: 0 10px;
   font-family: "Roboto", sans-serif;
-  background-color: GhostWhite; }
+  background-color: GhostWhite;
+  padding-bottom: 300px; }
 
 p {
   color: #444444; }
@@ -74,8 +75,10 @@ h1 {
     width: 100%; }
   .clip img.gray {
     filter: grayscale(80%);
-    -webkit-filter: grayscale(80%); }
+    -webkit-filter: grayscale(80%);
+    transition: filter 1s; }
   .clip img {
-    width: 100%; }
+    width: 100%;
+    transition: filter 1s; }
 
 /*# sourceMappingURL=main.css.map */

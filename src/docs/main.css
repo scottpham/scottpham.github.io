@@ -72,9 +72,10 @@ h1 {
     text-align: justify;
     margin: 5px 0px;
     width: 100%; }
+  .clip img.gray {
+    filter: grayscale(80%);
+    -webkit-filter: grayscale(80%); }
   .clip img {
-    width: 100%;
-    filter: grayscale(50%);
-    -webkit-filter: grayscale(90%); }
+    width: 100%; }
 
 /*# sourceMappingURL=main.css.map */
