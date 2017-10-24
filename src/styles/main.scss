@@ -88,6 +88,7 @@ h1 {
     display: block;
     font-size: 1.2em;
     margin: 5px 0px 15px 0px;
+    min-height: calc(1.2em * 2 + (1.5em - 1.2em)); // two font-sizes plus line-height
 
     a {
       color: $color5;
