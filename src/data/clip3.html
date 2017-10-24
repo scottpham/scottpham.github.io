@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- google fonts -->
+  <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <!-- main css -->
+  <link rel="stylesheet" type="text/css" href="main.css" />
+  <!-- that goofy polyfill service -->
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <title>Scott Pham</title>
+</head>
+
+<body>
+  <h1>Scott Pham</h2>
+    <img id="headshot" src="assets/images/street.png" />
+
+
+    <section id="nav">
+
+      <span><a href="#portfolio">Portfolio</a></span>
+      <span><a href="#contact">Contact</a></span>
+      <span><a href="assets/scottpham_resume_clips.pdf" download>Resume</a></span>
+
+    </section>
+
+
+    <p id="about">Hello, I'm Scott Pham, an investigative data journalist at the <a href="https://www.revealnews.org/author/scottpham" target="_blank">Center for Investigative Reporting</a>. I obtain and analyze data to build and support investigations on topics like domestic terrorism and police militarization. I also build interactive news applications and data visualizations.</p>
+
+    <section id="portfolio">
+
+      <div class="clip" id="clip3">
+        <span class="slug"><a href="http:&#x2F;&#x2F;apps.revealnews.org&#x2F;homegrown-terror" target="_blank">Homegrown Terror</a></span>
+
+        <a href="http:&#x2F;&#x2F;apps.revealnews.org&#x2F;homegrown-terror" target="_blank"><img class="gray" src="assets/images/terror.png" /></a>
+
+        <span class="tag">CIR&#x2F;The Investigative Fund</span>
+        <p>I helped to build and analyze a unique database of domestic terror incidents. I built an interactive application to view and map these incidents.</p>
+
+      </div>
+    </section>
+
+
+
+
+    <section id="contact">
+
+      <p>Email me at <a href="mailto:scottgpham@gmail.com">scottgpham[at]gmail.com</a>
+      </p>
+
+
+    </section>
+
+
+</body>
+
+
+<script type="text/javascript">
+  var imgs = document.querySelectorAll("#portfolio img");
+
+  function color(event) {
+    this.classList.remove("gray");
+    var $parent = this.parentNode.parentNode;
+    // get parent
+    var $clip = this.closest(".clip");
+    // get the link
+    var $slug = $clip.querySelector(".slug");
+
+    $slug.classList.add("highlight");
+  }
+
+    function gray(event) {
+      this.classList.add("gray");
+      var $slug = this.parentNode.parentNode.closest(".clip").querySelector(".slug");
+
+      $slug.classList.remove("highlight");
+    }
+
+    Array.from(imgs).forEach(function(each) {
+      each.addEventListener('mouseover', color);
+      each.addEventListener('mouseout', gray);
+    });
+</script>
+
+</html>
