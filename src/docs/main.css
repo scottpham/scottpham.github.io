@@ -60,7 +60,8 @@ h1 {
   .clip span.slug {
     display: block;
     font-size: 1.2em;
-    margin: 5px 0px 15px 0px; }
+    margin: 5px 0px 15px 0px;
+    min-height: calc(1.2em * 2 + (1.5em - 1.2em)); }
     .clip span.slug a {
       color: #9B1A11;
       transition: color 1s; }
