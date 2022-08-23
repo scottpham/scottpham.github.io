@@ -1,0 +1,39 @@
+{
+  "name": "scottpham.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "run-p style:watch data:watch html:watch assets:watch serve",
+    "serve": "browser-sync start --server  --files 'main.css' 'index.html' 'assets' ",
+    "deploy": "run-s data html assets style",
+    "html": "mustache src/data/portfolio.json src/index.html > index.html",
+    "html:watch": "chokidar 'src/index.html' --initial=true -c 'npm run html'",
+    "data": "node src/data/convert.js",
+    "data:watch": "chokidar 'src/data/portfolio.csv' --initial=true -c 'run-s data html'",
+    "style": "node-sass --source-map true src/styles/main.scss src/docs/main.css",
+    "style:watch": "npm run style && node-sass -w --source-map true src/styles/main.scss main.css",
+    "assets": "rsync -a src/assets/ assets/",
+    "assets:watch": "chokidar 'src/assets/**' --initial=true -c 'npm run assets'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scottpham/scottpham.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scottpham/scottpham.github.io/issues"
+  },
+  "homepage": "https://github.com/scottpham/scottpham.github.io#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "chokidar": "^1.7.0",
+    "chokidar-cli": "^1.2.0",
+    "indian-ocean": "^2.0.2",
+    "mustache": "^2.3.0",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.1.1"
+  },
+  "dependencies": {}
+}

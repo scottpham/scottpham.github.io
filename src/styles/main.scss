@@ -1,0 +1,146 @@
+// yassss http://bettermotherfuckingwebsite.com/
+@import 'palette';
+$black: #222222;
+$background: GhostWhite;
+$body-font: 'Roboto',
+sans-serif;
+$header-font: 'Verdana',
+sans-serif;
+//$glow: #ffff38;
+$glow: rgba(26, 106, 255, 0.81);
+
+
+body {
+  margin: 40px auto;
+  max-width: 700px;
+  line-height: 1.5em;
+  font-size: 18px;
+  color: $black;
+  padding: 0 10px;
+  font-family: $body-font;
+  background-color: $background;
+  padding-bottom: 300px;
+}
+
+p {
+  color: #444444;
+}
+
+a {
+ color: $color5;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $header-font;
+  color: $color1;
+  text-align: center;
+}
+
+h1 {
+  font-size: 4em;
+  line-height: 1em;
+  
+  @media screen and (max-width: 600px){
+    font-size: 3em;
+  }
+
+}
+
+
+
+
+#headshot {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  max-width: 250px;
+}
+
+#nav {
+  margin: 1.5em 0;
+  display: flex; //justify-content: center;
+  justify-content: space-around;
+
+  span>a {
+    font-size: 1.3em;
+  }
+}
+
+#portfolio {
+  border-top: 1px solid $color1;
+  border-bottom: 1px solid $color1;
+  margin: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.clip {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 300px;
+  //width: 310px;
+  padding: 20px 10px 0px 10px; 
+  margin: 0px 10px 20px 10px;
+
+  span.slug {
+    display: block;
+    font-size: 1.2em;
+    margin: 5px 0px 15px 0px;
+    min-height: calc(1.2em * 2 + (1.5em - 1.2em)); // two font-sizes plus line-height
+
+    a {
+      color: $color5;
+      transition: color 1s;
+    }
+  }
+
+  //controled by js
+  span.slug.highlight {
+    a {
+      color: $color1;
+      transition: color 1s;
+    }
+  }
+  span.tag {
+    font-size: 0.8em; 
+    color: #888888;
+  }
+
+
+  p {
+    color: #444444;
+    font-size: 16px;
+    line-height: 1.2em;
+    text-align: justify;
+    margin: 5px 0px;
+    width: 100%;
+  }
+
+  img.gray {
+    filter: grayscale(80%);
+    -webkit-filter: grayscale(80%);
+    transition: filter 1s;
+  }
+  
+  img:hover {
+    color: #111; 
+    background: $glow; 
+    box-shadow: 0 0 25px $glow; 
+    transition: box-shadow 1s;
+  }
+
+  img {
+    width: 100%;
+    transition: filter 1s;
+  }
+
+}
+
+section#contact {
+  
+}
