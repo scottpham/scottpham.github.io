@@ -1,167 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- google fonts -->
-  <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-  <!-- main css -->
-  <link rel="stylesheet" type="text/css" href="main.css" />
-  <!-- that goofy polyfill service -->
-  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-  <title>Scott Pham</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scott Pham - Portfolio</title>
+    <style>
+        :root {
+            /* mustard yellow */
+          --color1: #015454;
+          /* dark soft gray */
+          --color2: #333333;
+          --color3: #31E77C;
+          --color4: #4E0500;
+          --color5: #9B1A11;
+          --black: #222222;
+          --background: GhostWhite;
+          --body-font: 'Roboto', sans-serif;
+          --header-font: 'Verdana', sans-serif;
+          --glow: rgba(26, 106, 255, 0.81);
+        }
+        
+        body {
+          margin: 40px auto;
+          max-width: 700px;
+          line-height: 1.5em;
+          font-size: 18px;
+          color: var(--black);
+          padding: 0 10px 300px 10px;
+          font-family: var(--body-font);
+          background-color: var(--background);
+        }
+        
+        p {
+          color: #444444;
+        }
+        
+        a {
+          color: var(--color5);
+        }
+        
+        h1, h2, h3, h4 {
+          font-family: var(--header-font);
+          color: var(--color1);
+          text-align: center;
+        }
+        
+        h1 {
+          font-size: 4em;
+          line-height: 1em;
+        }
+        
+        @media screen and (max-width: 600px) {
+          h1 {
+            font-size: 3em;
+          }
+        }
+        
+        #headshot {
+          display: block;
+          margin: 0 auto;
+          border-radius: 50%;
+          max-width: 250px;
+        }
+        
+        #nav {
+          margin: 1.5em 0;
+          display: flex;
+          justify-content: space-around;
+        }
+        
+        #nav a {
+          font-size: 1.3em;
+          text-decoration: none;
+          color: var(--color5);
+        }
+        
+        #portfolio {
+          border-top: 1px solid var(--color1);
+          border-bottom: 1px solid var(--color1);
+          margin: 30px 0;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+        
+        .clip {
+          flex: 1 1 300px;
+          padding: 20px 10px 0px 10px;
+          margin: 0px 10px 20px 10px;
+        }
+        
+        .clip .slug {
+          display: block;
+          font-size: 1.2em;
+          margin: 5px 0px 15px 0px;
+          min-height: calc(1.2em * 2 + (1.5em - 1.2em));
+        }
+        
+        .clip .slug a {
+          color: var(--color5);
+          transition: color 0.3s;
+          text-decoration: none;
+        }
+        
+        .clip:hover .slug a {
+          color: var(--color1);
+        }
+        
+        .clip .tag {
+          font-size: 0.8em;
+          color: #888888;
+        }
+        
+        .clip p {
+          color: #444444;
+          font-size: 16px;
+          line-height: 1.2em;
+          text-align: justify;
+          margin: 5px 0px;
+          width: 100%;
+        }
+        
+        .clip img {
+          width: 100%;
+          transition: filter 0.3s, box-shadow 0.3s;
+        }
+        
+        .clip:hover img {
+          filter: grayscale(0%);
+          box-shadow: 0 0 25px var(--glow);
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 </head>
+<body x-data="portfolioData()">
+    <img src="assets/images/brooklyn.png" alt="Scott Pham" id="headshot">
 
-<body>
-  <h1>Scott Pham</h2>
-    <img id="headshot" src="assets/images/brooklyn.png" />
+    <h1>Scott Pham</h1>
 
+    <div id="nav">
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+        <a href="assets/scottpham_resume.pdf" download>Resume</a>
+    </div>
 
-    <section id="nav">
+    <p>
+        Hello, I'm Scott Pham, an investigative data reporter at CBS News.
+        Before that, I've had reporting roles at a number of newsrooms
+        including <a href="https://www.buzzfeednews.com" target="_blank">BuzzFeed News</a>
+        and <a href="https://www.revealnews.org/author/scottpham" target="_blank">The Center for Investigative Reporting</a>.
+        I report data-driven stories about housing, poverty and inequality,
+        obtain and analyze data for investigations, and sometimes teach data
+        reporting and data visualization.
+    </p>
 
-      <span><a href="#portfolio">Selected Clips</a></span>
-      <span><a href="#contact">Contact</a></span>
-      <span><a href="assets/scottpham_resume.pdf" download>Resume</a></span>
+    <div id="portfolio">
+        <template x-for="clip in portfolio" :key="clip.slug">
+            <div class="clip" :id="clip.slug">
+                <span class="slug">
+                    <a :href="clip.link" target="_blank" x-text="clip.name"></a>
+                </span>
+                <img :src="'assets/images/' + clip.image" :alt="clip.name">
+                <span class="tag" x-text="clip.newsroom"></span>
+                <p x-text="clip.copy"></p>
+            </div>
+        </template>
+    </div>
 
-    </section>
+    <div id="contact">
+        <h2>Contact</h2>
+        <p>Email me at <a href="mailto:scottgpham@gmail.com">scottgpham[at]gmail.com</a></p>
+    </div>
 
-
-    <p id="about">Hello, I'm Scott Pham, an investigative data reporter at CBS News. Before that, I've had reporting roles at a number of newsrooms including <a href="https://www.buzzfeednews.com">BuzzFeed News</a> and <a href="https://www.revealnews.org/author/scottpham" target="_blank">The Center for Investigative Reporting</a>. I report data-driven stories about housing, poverty and inequality, obtain and analyze data for investigations, and sometimes teach data reporting and data visualization.</p>
-
-    <section id="portfolio">
-
-      <div class="clip" id="clip9">
-        <span class="slug"><a href="https:&#x2F;&#x2F;www.buzzfeednews.com&#x2F;article&#x2F;scottpham&#x2F;child-abuse-and-neglect-registries-punish-parents-of-color" target="_blank">The Blacklist</a></span>
-
-        <a href="https:&#x2F;&#x2F;www.buzzfeednews.com&#x2F;article&#x2F;scottpham&#x2F;child-abuse-and-neglect-registries-punish-parents-of-color" target="_blank"><img src="assets/images/blacklist.png" /></a>
-
-        <span class="tag">BuzzFeed News</span>
-        <p>A solo investigation into a secretive database states use to track and punish people accused of child abuse. I spoke to more than 100 sources and filed more than a dozen public record requests for data. My reporting and analysis showed that the registries capture far too many innocent parents and   disproportionately hurts people of color.</p>
-
-      </div>
-
-      <div class="clip" id="clip8">
-        <span class="slug"><a href="https:&#x2F;&#x2F;www.buzzfeednews.com&#x2F;article&#x2F;jasonleopold&#x2F;fincen-files-financial-scandal-criminal-networks" target="_blank">The FinCEN Files</a></span>
-
-        <a href="https:&#x2F;&#x2F;www.buzzfeednews.com&#x2F;article&#x2F;jasonleopold&#x2F;fincen-files-financial-scandal-criminal-networks" target="_blank"><img src="assets/images/fincenfiles.png" /></a>
-
-        <span class="tag">BuzzFeed News</span>
-        <p>A massive collaborative reporting project with the International Consortium of Investigation Journalists. Unveiled the way banks allow dirty money to flow freely through the US financial system. Finalist for a 2021 Pulitzer Prize.</p>
-
-      </div>
-
-      <div class="clip" id="clip7">
-        <span class="slug"><a href="https:&#x2F;&#x2F;www.revealnews.org&#x2F;article&#x2F;hidden-figures-how-silicon-valley-keeps-diversity-data-secret&#x2F;" target="_blank">How Silicon Valley keeps diversity data secret</a></span>
-
-        <a href="https:&#x2F;&#x2F;www.revealnews.org&#x2F;article&#x2F;hidden-figures-how-silicon-valley-keeps-diversity-data-secret&#x2F;" target="_blank"><img src="assets/images/diversity.png" /></a>
-
-        <span class="tag">CIR</span>
-        <p>I analyzed data for a story about Silicon Valley diversity. My interactive charts showed how the gender and race breakdowns of various companies change drastically when you take into account the different professions.</p>
-
-      </div>
-
-      <div class="clip" id="clip1">
-        <span class="slug"><a href="http:&#x2F;&#x2F;fire.revealnews.org&#x2F;" target="_blank">How Fire Feeds</a></span>
-
-        <a href="http:&#x2F;&#x2F;fire.revealnews.org&#x2F;" target="_blank"><img src="assets/images/fire.png" /></a>
-
-        <span class="tag">CIR</span>
-        <p>An interactive narrative that shows how three massive forest fires spiraled out of control. This story won a Philip Meyer Award in 2016 for data journalism.</p>
-
-      </div>
-
-      <div class="clip" id="clip2">
-        <span class="slug"><a href="http:&#x2F;&#x2F;apps.revealnews.org&#x2F;transmountain" target="_blank">The Promised Land</a></span>
-
-        <a href="http:&#x2F;&#x2F;apps.revealnews.org&#x2F;transmountain" target="_blank"><img src="assets/images/promised.png" /></a>
-
-        <span class="tag">CIR</span>
-        <p>I designed, laid out, and programmed this unique story format for a narrative about a controversial Canadian oil pipeline. Scroll-based events triggered animations on a custom map, orienting the user as he reads through the piece. </p>
-
-      </div>
-
-      <div class="clip" id="clip3">
-        <span class="slug"><a href="http:&#x2F;&#x2F;apps.revealnews.org&#x2F;homegrown-terror" target="_blank">Homegrown Terror</a></span>
-
-        <a href="http:&#x2F;&#x2F;apps.revealnews.org&#x2F;homegrown-terror" target="_blank"><img src="assets/images/terror.png" /></a>
-
-        <span class="tag">CIR&#x2F;The Investigative Fund</span>
-        <p>I helped to build and analyze a unique database of domestic terror incidents. I built an interactive application to view and map these incidents.</p>
-
-      </div>
-
-      <div class="clip" id="clip4">
-        <span class="slug"><a href="http:&#x2F;&#x2F;www.nbcbayarea.com&#x2F;blogs&#x2F;frameshift&#x2F;How-Militarized-are-California-Police-274380751.html" target="_blank">How Militarized Are California Police?</a></span>
-
-        <a href="http:&#x2F;&#x2F;www.nbcbayarea.com&#x2F;blogs&#x2F;frameshift&#x2F;How-Militarized-are-California-Police-274380751.html" target="_blank"><img src="assets/images/police.png" /></a>
-
-        <span class="tag">NBC</span>
-        <p>This story analyzes a huge federal dataset that indicates how much military gear each state has obtained through the “1033” Department of Defense program. Features an interactive map and an interactive chart, both in D3.js.</p>
-
-      </div>
-
-      <div class="clip" id="clip5">
-        <span class="slug"><a href="https:&#x2F;&#x2F;www.nbcbayarea.com&#x2F;news&#x2F;local&#x2F;earthquakes&#x2F;bay-area-quake-map&#x2F;2898569&#x2F;" target="_blank">Bay Area Quake Map</a></span>
-
-        <a href="https:&#x2F;&#x2F;www.nbcbayarea.com&#x2F;news&#x2F;local&#x2F;earthquakes&#x2F;bay-area-quake-map&#x2F;2898569&#x2F;" target="_blank"><img src="assets/images/quakes.png" /></a>
-
-        <span class="tag">NBC</span>
-        <p>This map accesses the USGS API to bring an always up-to-date view of earthquakes in the immediate Bay Area. User interactions on the table update the map’s view and vice-versa.</p>
-
-      </div>
-
-      <div class="clip" id="clip6">
-        <span class="slug"><a href="https:&#x2F;&#x2F;data.nbcstations.com&#x2F;national&#x2F;KNTV&#x2F;scottpham&#x2F;water-facet&#x2F;" target="_blank">The Leakiest Cities in the Bay</a></span>
-
-        <a href="https:&#x2F;&#x2F;data.nbcstations.com&#x2F;national&#x2F;KNTV&#x2F;scottpham&#x2F;water-facet&#x2F;" target="_blank"><img src="assets/images/pipes.png" /></a>
-
-        <span class="tag">NBC</span>
-        <p>This collection of “small multiples” provides easy comparison across two categories: place and year. The bar charts, written in D3.js, are “linked”, allowing mouse events in one chart to produce effects in all the others.</p>
-
-      </div>
-    </section>
-
-
-
-
-    <section id="contact">
-
-      <p>Email me at <a href="mailto:scottgpham@gmail.com">scottgpham[at]gmail.com</a>
-      </p>
-
-
-    </section>
-
-
+    <script>
+        function portfolioData() {
+            return {
+                portfolio: [],
+                async init() {
+                    const response = await fetch('portfolio.csv');
+                    const text = await response.text();
+                    const result = Papa.parse(text, { header: true });
+                    this.portfolio = result.data;
+                }
+            }
+        }
+    </script>
 </body>
-
-
-<script type="text/javascript">
-  var imgs = document.querySelectorAll("#portfolio img");
-
-  function color(event) {
-    this.classList.remove("gray");
-    var $parent = this.parentNode.parentNode;
-    // get parent
-    var $clip = this.closest(".clip");
-    // get the link
-    var $slug = $clip.querySelector(".slug");
-
-    $slug.classList.add("highlight");
-  }
-
-    function gray(event) {
-      this.classList.add("gray");
-      var $slug = this.parentNode.parentNode.closest(".clip").querySelector(".slug");
-
-      $slug.classList.remove("highlight");
-    }
-
-    Array.from(imgs).forEach(function(each) {
-      //each.addEventListener('mouseover', gray);
-      //each.addEventListener('mouseout', color);
-    });
-</script>
-
 </html>
