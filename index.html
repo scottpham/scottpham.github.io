@@ -11,8 +11,11 @@
           --color5: #f56565;
           --black: #1a202c;
           --background: #fafafa;
-          --body-font: 'Roboto', sans-serif;
-          --header-font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+          /* Roboto/Inter are never loaded (no <link>/@font-face), so these fall back to sans-serif. */
+          /* --body-font: 'Roboto', sans-serif; */
+          /* --header-font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; */
+          --body-font: sans-serif;
+          --header-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
           --glow: rgba(26, 54, 93, 0.15);
         }
         
@@ -103,6 +106,12 @@
           color: var(--color1);
         }
         
+        .clip-link {
+          color: inherit;
+          text-decoration: none;
+          display: block;
+        }
+
         .clip .tag {
           font-size: 0.8em;
           color: #718096;
@@ -119,11 +128,13 @@
         
         .clip img {
           width: 100%;
-          transition: filter 0.3s, box-shadow 0.3s;
+          /* `filter` transition is unused — no base grayscale is applied (see hover rule below). */
+          transition: box-shadow 0.3s;
         }
-        
+
         .clip:hover img {
-          filter: grayscale(0%);
+          /* No base `filter: grayscale(100%)` is set, so this grayscale(0%) is a no-op. Disabled. */
+          /* filter: grayscale(0%); */
           box-shadow: 0 4px 12px var(--glow);
         }
     </style>
@@ -157,9 +168,13 @@
                 <span class="slug">
                     <a :href="clip.link" target="_blank" x-text="clip.name"></a>
                 </span>
-                <img :src="'assets/images/' + clip.image" :alt="clip.name">
+                <a :href="clip.link" target="_blank" class="clip-link">
+                    <img :src="'assets/images/' + clip.image" :alt="clip.name">
+                </a>
                 <span class="tag" x-text="clip.newsroom"></span>
-                <p x-text="clip.copy"></p>
+                <a :href="clip.link" target="_blank" class="clip-link">
+                    <p x-text="clip.copy"></p>
+                </a>
             </div>
         </template>
     </div>
@@ -176,7 +191,7 @@
                 async init() {
                     const response = await fetch('portfolio.csv');
                     const text = await response.text();
-                    const result = Papa.parse(text, { header: true });
+                    const result = Papa.parse(text, { header: true, skipEmptyLines: true });
                     this.portfolio = result.data;
                 }
             }
